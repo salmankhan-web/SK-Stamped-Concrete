@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle" data-en="SK Stamped Concrete - Professional Flooring Solutions" data-ar="SK للخرسانة المختومة - حلول الأرضيات الاحترافية">SK Stamped Concrete - Professional Flooring Solutions</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f8f9fa;
+            --text: #212529;
+            --primary: #e67e22;
+            --card-bg: #ffffff;
+            --accent: #6c757d;
+        }
+        [data-theme="dark"] {
+            --bg: #121212;
+            --text: #e0e0e0;
+            --primary: #f39c12;
+            --card-bg: #1e1e1e;
+            --accent: #adb5bd;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: all 0.3s;
+        }
+
+        /* تمام لنکس کا ڈیفالٹ نیلا کلر ہٹایا */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            background: rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            transition: font-size 0.3s;
+        }
+
+        .lang-toggle {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .lang-toggle {
+                font-size: 1.8rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg);
+                flex-direction: column;
+                align-items: center;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                z-index: 999;
+                padding: 0;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                max-height: 600px;
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+                padding: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.3rem;
+            }
+        }
+
+        .hero {
+            height: 100vh;
+            padding-top: 100px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.niceguyconcrete.com/images/stamped-concrete.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #FFF4F4;
+            margin-bottom: 0rem;
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            color: #eee;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(230,126,34,0.4);
+        }
+
+        section {
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            color: var(--primary);
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .contact input, .contact textarea {
+            padding: 1rem;
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text);
+            transition: 0.3s;
+        }
+
+        .contact input:focus, .contact textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(230,126,34,0.3);
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            margin-right: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #0a0a0a;
+            color: #aaa;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .social-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 2rem;
+            margin: 0 1rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-8px);
+        }
+
+        .created-by {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .created-by a {
+            color: var(--primary);
+        }
+
+        .created-by a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-section">
+                <div class="logo" data-en="SK Stamped Concrete" data-ar="SK للخرسانة المختومة">SK Stamped Concrete</div>
+                <button class="lang-toggle" id="langToggle"></button>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-links">
+                    <a href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
+                    <a href="#about" data-en="About" data-ar="عنا">About</a>
+                    <a href="#services" data-en="Services" data-ar="الخدمات">Services</a>
+                    <a href="#portfolio" data-en="Portfolio" data-ar="معرض الأعمال">Portfolio</a>
+                    <a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+                    <button class="theme-toggle" id="themeToggle">🌙</button>
+                </div>
+                <button class="hamburger" id="hamburger">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1 data-en="Welcome to SK Stamped Concrete" data-ar="مرحباً بكم في SK للخرسانة المختومة">Welcome to SK Stamped Concrete</h1>
+        <p data-en="Professional stamped concrete, epoxy flooring, and decorative solutions for driveways, patios, walkways, and indoor spaces." data-ar="خرسانة مختومة احترافية، أرضيات إيبوكسي، وحلول زخرفية للمداخل، الباحات، الممرات، والمساحات الداخلية.">Professional stamped concrete, epoxy flooring, and decorative solutions for driveways, patios, walkways, and indoor spaces.</p>
+       <!-- <button class="btn" data-en="Get a Quote" data-ar="احصل على عرض أسعار">Get a Quote</button>-->
+         <a href="https://wa.me/+966 59 273 5108" target="_blank" class="btn" id="quoteBtn" data-en="Get a Quote" data-ar="احصل على عرض أسعار">Get a Quote</a>
+    </section>
+
+    <section id="about" class="about">
+        <h2 data-en="About Us" data-ar="عنا">About Us</h2>
+        <p data-en="SK Stamped Concrete specializes in high-quality stamped concrete, epoxy coatings, and decorative flooring. We use premium materials and modern techniques to create durable, beautiful surfaces that enhance your home or business." data-ar="تتخصص SK للخرسانة المختومة في الخرسانة المختومة عالية الجودة، طلاءات الإيبوكسي، والأرضيات الزخرفية. نستخدم مواد ممتازة وتقنيات حديثة لإنشاء أسطح متينة وجميلة تعزز منزلك أو عملك.">SK Stamped Concrete specializes in high-quality stamped concrete, epoxy coatings, and decorative flooring. We use premium materials and modern techniques to create durable, beautiful surfaces that enhance your home or business.</p>
+    </section>
+
+    <section id="services">
+        <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://pristinelandscapingandlighting.com/wp-content/uploads/2024/04/Stamped-Concrete.jpg" alt="Stamped Concrete Example">
+                <h3 data-en="Stamped Concrete" data-ar="الخرسانة المختومة">Stamped Concrete</h3>
+                <p data-en="Natural stone, tile, wood, and cobblestone patterns for outdoor and indoor use." data-ar="أنماط الحجر الطبيعي، البلاط، الخشب، وحجر الكوبلستون للاستخدام الخارجي والداخلي.">Natural stone, tile, wood, and cobblestone patterns for outdoor and indoor use.</p>
+            </div>
+            <div class="card">
+                <img src="https://leggari.com/wp-content/uploads/2022/07/3.jpeg" alt="Epoxy Flooring Example">
+                <h3 data-en="Epoxy Flooring" data-ar="أرضيات الإيبوكسي">Epoxy Flooring</h3>
+                <p data-en="Shiny, waterproof, and durable coatings perfect for garages and interiors." data-ar="طلاءات لامعة، مقاومة للماء، ومتينة مثالية للكراجات والمساحات الداخلية.">Shiny, waterproof, and durable coatings perfect for garages and interiors.</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn.habitusliving.com/wp-content/uploads/2024/02/1.aggcon.jpg" alt="Pebble Aggregate Example">
+                <h3 data-en="Pebble & Aggregate" data-ar="الحصى والركام المكشوف">Pebble & Aggregate</h3>
+                <p data-en="Beautiful exposed aggregate finishes with natural stones." data-ar="تشطيبات ركام مكشوف جميلة مع أحجار طبيعية.">Beautiful exposed aggregate finishes with natural stones.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 data-en="Our Portfolio" data-ar="معرض أعمالنا">Our Projects</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://leggari.com/wp-content/uploads/2022/07/3.jpeg" alt="Blue Epoxy Floor">
+                <h3 data-en="Epoxy Flooring Project" data-ar="مشروع أرضيات إيبوكسي">Epoxy Flooring Project</h3>
+            </div>
+            <div class="card">
+                <img src="https://pristinelandscapingandlighting.com/wp-content/uploads/2024/04/Stamped-Concrete.jpg" alt="Irregular Stone Patio">
+                <h3 data-en="Stone Pattern Patio" data-ar="باحة بنمط الحجر">Stone Pattern Patio</h3>
+            </div>
+            <div class="card">
+                <img src="https://dwellifyhome.com/wp-content/uploads/2025/10/modern-stamped-concrete-patterns-1024x768.jpg" alt="Modern Tile Driveway">
+                <h3 data-en="Modern Tile Pattern" data-ar="نمط بلاط حديث">Modern Tile Pattern</h3>
+            </div>
+            <div class="card">
+                <img src="https://www.expressions-ltd.com/cdn/shop/products/Concrete-Seamless-Stamp-Mat---Fractured-Thin-Slate-_product_sku_-1668820670_1800x.jpg?v=1668820672" alt="Stamping Mold">
+                <h3 data-en="Stamping Process" data-ar="عملية الختم">Stamping Process</h3>
+            </div>
+            <div class="card">
+                <img src="https://gulfarabcrete.com/wp-content/uploads/2025/07/Cobblestone-edited-1.jpg" alt="Cobblestone Path">
+                <h3 data-en="Cobblestone Walkway" data-ar="ممر حجر الكوبلستون">Cobblestone Walkway</h3>
+            </div>
+            <div class="card">
+                <img src="https://emesa.ca/wp-content/uploads/2024/02/colony-place-9.jpg" alt="Slate Pattern">
+                <h3 data-en="Slate Pattern" data-ar="نمط السليت">Slate Pattern</h3>
+            </div>
+            <div class="card">
+                <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2024/06/18042930/AdobeStock_244653944.jpeg" alt="Dark Slate">
+                <h3 data-en="Dark Slate Pattern" data-ar="نمط السليت الداكن">Dark Slate Pattern</h3>
+            </div>
+            <div class="card">
+                <img src="https://fischerlandscapingusa.com/wp-content/uploads/2025/11/Stamped-Concrete-1024x585.jpeg" alt="Decorative Patio">
+                <h3 data-en="Decorative Garden Patio" data-ar="باحة حديقة زخرفية">Decorative Garden Patio</h3>
+            </div>
+            <div class="card">
+                <img src="https://cdn.habitusliving.com/wp-content/uploads/2024/02/1.aggcon.jpg" alt="Pebble Aggregate">
+                <h3 data-en="Pebble Aggregate" data-ar="ركام الحصى">Pebble Aggregate</h3>
+            </div>
+           <!-- <div class="card">
+                <img src="https://globmarble.com/image/cache/catalog/products/concrete-stone/concrete-stone-molds/stamp-molds/2100/sm-2103-sand-stamp-3-2000x1500.jpg" alt="Stone Texture Sample">
+                <h3 data-en="Stone Texture Sample" data-ar="عينة نسيج الحجر">Stone Texture Sample</h3>
+            </div>-->
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
+        <form action="https://formspree.io/f/your-email-here" method="POST">
+            <input type="text" name="name" data-placeholder-en="Your Name" data-placeholder-ar="اسمك" placeholder="Your Name" required>
+            <input type="tel" name="phone" data-placeholder-en="Phone Number" data-placeholder-ar="رقم الهاتف" placeholder="Phone Number" required>
+            <input type="email" name="email" data-placeholder-en="Email (optional)" data-placeholder-ar="البريد الإلكتروني (اختياري)" placeholder="Email (optional)">
+            <textarea name="message" rows="6" data-placeholder-en="Project details and message" data-placeholder-ar="تفاصيل المشروع والرسالة" placeholder="Project details and message" required></textarea>
+            <button type="submit" class="btn" data-en="Send Message" data-ar="أرسل الرسالة">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> Phone: <a href="tel:+966 59 273 5108">+966 59 273 5108</a></p>
+            <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/+966 59 273 5108">+966 59 273 5108</a></p>
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@skstampedconcrete.com">info@skstampedconcrete.com</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://tiktok.com/@youraccount" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://instagram.com/youraccount" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/+966 59 273 5108" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <p data-en="&copy; 2026 SK Stamped Concrete. All rights reserved." data-ar="&copy; ٢٠٢٦ SK للخرسانة المختومة. جميع الحقوق محفوظة.">© 2026 SK Stamped Concrete. All rights reserved.</p>
+
+        <p class="created-by" data-en="Created by <a href='https://skwebstudio.netlify.app/' target='_blank'>SK Web Studio</a>" data-ar="تم الإنشاء بواسطة <a href='https://skwebstudio.netlify.app/' target='_blank'>SK Web Studio</a>">Created by <a href="https://skwebstudio.netlify.app/" target="_blank">SK Web Studio</a></p>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+        const langToggle = document.getElementById('langToggle');
+        const logo = document.querySelector('.logo');
+
+        function updateLanguage() {
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.title = document.getElementById('pageTitle').dataset[currentLang];
+
+            document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+                el.innerHTML = el.dataset[currentLang];
+            });
+
+            logo.innerText = logo.dataset[currentLang];
+
+            document.querySelectorAll('[data-placeholder-en][data-placeholder-ar]').forEach(el => {
+                el.placeholder = el.dataset[currentLang === 'en' ? 'placeholderEn' : 'placeholderAr'];
+            });
+
+            langToggle.innerHTML = currentLang === 'en' ? '🇸🇦' : '🇺🇸';
+        }
+
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            updateLanguage();
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.textContent = '☰';
+            });
+        });
+
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            if (body.hasAttribute('data-theme')) {
+                body.removeAttribute('data-theme');
+                themeToggle.textContent = '🌙';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        updateLanguage();
+    </script>
+</body>
+</html>
